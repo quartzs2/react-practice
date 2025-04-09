@@ -1,4 +1,10 @@
+import Logo from './icons/Logo';
+
 const Header = () => {
-  return <div>Header</div>;
+  return (
+    <header>
+      <Logo />
+    </header>
+  );
 };
 export default Header;
