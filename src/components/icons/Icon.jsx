@@ -1,10 +1,11 @@
-import { Link } from 'react-router';
+const Icon = ({ icon, size }) => {
+  const ImgIcon = icon;
+  const sizeClass = `w-[${size}] h-[${size}]`;
 
-const Icon = ({ url, icon, size }) => {
   return (
-    <Link to={url}>
-      <span className={`w-[${size}] h-[${size}]`}>{icon}</span>
-    </Link>
+    <span className={sizeClass}>
+      <ImgIcon />
+    </span>
   );
 };
 export default Icon;
