@@ -1,11 +1,10 @@
 const Icon = ({ icon, size }) => {
   const ImgIcon = icon;
-  const sizeClass = `w-[${size}] h-[${size}]`;
 
   return (
-    <span className={sizeClass}>
+    <div className='flex justify-center items-center' style={{ width: size, height: size }}>
       <ImgIcon />
-    </span>
+    </div>
   );
 };
 export default Icon;

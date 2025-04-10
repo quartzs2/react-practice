@@ -1,14 +1,10 @@
 import { Link } from 'react-router';
+import Icon from './Icon';
 
 const IconButton = ({ url, icon, size }) => {
-  const ImgIcon = icon;
-  const sizeClass = `w-[${size}] h-[${size}]`;
-
   return (
     <Link to={url}>
-      <span className={sizeClass}>
-        <ImgIcon />
-      </span>
+      <Icon icon={icon} size={size} />
     </Link>
   );
 };
