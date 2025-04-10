@@ -6,7 +6,7 @@ import SearchBar from './ui/header/SearchBar';
 const Header = () => {
   return (
     <header className='w-full flex justify-center'>
-      <div className='flex items-center h-22 max-w-280 gap-8'>
+      <div className='flex items-center h-22 max-w-280 w-full gap-8 px-4'>
         <Logo />
         <SearchBar />
         <Navigation />
