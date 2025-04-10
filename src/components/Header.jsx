@@ -5,11 +5,13 @@ import SearchBar from './ui/header/SearchBar';
 
 const Header = () => {
   return (
-    <header className='flex items-center h-22'>
-      <Logo />
-      <SearchBar />
-      <Navigation />
-      <Icons />
+    <header className='w-full flex justify-center'>
+      <div className='flex items-center h-22 max-w-280 gap-8'>
+        <Logo />
+        <SearchBar />
+        <Navigation />
+        <Icons />
+      </div>
     </header>
   );
 };

@@ -3,7 +3,7 @@ import Icon from '../../icons/Icon.jsx';
 
 const SearchBar = () => {
   return (
-    <div className='flex items-center w-[433px] p-4  bg-light-gray rounded-lg'>
+    <div className='flex items-center w-[433px] h-14 p-4  bg-light-gray rounded-lg'>
       <Icon icon={SearchIcon} size='24px' />
       <input className='text-sm ml-3 w-full focus:outline-none' type='text' placeholder='Search' />
     </div>
