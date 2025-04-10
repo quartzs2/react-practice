@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { Link, useLocation } from 'react-router';
-import cn from '../../../utils/cn';
+import cn from '@/utils/cn';
 
 const Navigation = ({ className }) => {
   const location = useLocation();

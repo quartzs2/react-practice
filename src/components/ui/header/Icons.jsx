@@ -1,8 +1,8 @@
-import IconButton from '../../icons/IconButton';
-import FavoriteIcon from '../../../assets/Images/icons/32px/icon_favorites.svg?react';
-import CartIcon from '../../../assets/Images/icons/32px/icon_cart.svg?react';
-import UserIcon from '../../../assets/Images/icons/32px/icon_user.svg?react';
-import cn from '../../../utils/cn';
+import IconButton from '@/components/icons/IconButton';
+import FavoriteIcon from '@/assets/Images/icons/32px/icon_favorites.svg?react';
+import CartIcon from '@/assets/Images/icons/32px/icon_cart.svg?react';
+import UserIcon from '@/assets/Images/icons/32px/icon_user.svg?react';
+import cn from '@/utils/cn';
 
 const Icons = ({ className }) => {
   return (
