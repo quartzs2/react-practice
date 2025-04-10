@@ -1,12 +1,13 @@
 import classNames from 'classnames';
 import { Link, useLocation } from 'react-router';
+import cn from '../../../utils/cn';
 
-const Navigation = () => {
+const Navigation = ({ className }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
   return (
-    <div className='flex gap-[52px] w-[369px] text-base text-light-gray-text'>
+    <div className={cn('flex gap-[52px] w-[369px] text-base text-light-gray-text', className)}>
       <Link className={classNames({ 'text-black': currentPath === '/' })} to='/'>
         home
       </Link>
