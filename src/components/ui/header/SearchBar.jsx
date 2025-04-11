@@ -1,6 +1,6 @@
-import SearchIcon from '../../../assets/Images/icons/24px/icon_search.svg?react';
-import Icon from '../../icons/Icon.jsx';
-import cn from '../../../utils/cn.js';
+import SearchIcon from '@/assets/Images/icons/24px/icon_search.svg?react';
+import Icon from '@/components/icons/Icon.jsx';
+import cn from '@/utils/cn.js';
 
 const SearchBar = ({ className }) => {
   return (

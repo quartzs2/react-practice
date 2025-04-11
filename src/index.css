@@ -1,9 +1,13 @@
 @import 'tailwindcss';
 
 @theme {
+  --color-bg-gray: #ededed;
   --color-light-gray: #f5f5f5;
   --color-light-gray-text: #b2b2b2;
   --color-dark-gray-text: #969696;
+  --color-banner-top-background: #211c24;
+  --color-banner-dark-gray: #7b777c;
+  --color-banner-light-gray: #909090;
 }
 
 /* noto-sans-kr-100 - korean_latin */

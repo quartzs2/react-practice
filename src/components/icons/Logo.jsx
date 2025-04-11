@@ -1,4 +1,4 @@
-import LogoImg from '../../assets/Images/logo/logo_black.svg?react';
+import LogoImg from '@/assets/Images/logo/logo_black.svg?react';
 import { Link } from 'react-router';
 
 const Logo = ({ className }) => {
