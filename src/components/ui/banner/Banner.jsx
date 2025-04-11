@@ -1,6 +1,7 @@
 import AirPodsBanner from './bottom-left-banner/AirPodsBanner';
 import PlaystationBanner from './bottom-left-banner/PlaystationBanner';
 import VisionProBanner from './bottom-left-banner/VisionProBanner';
+import MacbookBanner from './bottom-right-banner/MacbookBanner';
 import TopBanner from './top-banner/TopBanner';
 
 const Banner = () => {
@@ -15,6 +16,7 @@ const Banner = () => {
           <PlaystationBanner />
         </div>
         {/* bottom right */}
+        <MacbookBanner />
       </div>
     </div>
   );
