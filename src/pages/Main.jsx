@@ -1,4 +1,10 @@
+import Banner from '@/components/ui/banner/Banner';
+
 const Main = () => {
-  return <div>Main</div>;
+  return (
+    <div>
+      <Banner />
+    </div>
+  );
 };
 export default Main;
