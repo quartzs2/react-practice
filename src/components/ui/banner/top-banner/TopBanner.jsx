@@ -9,17 +9,18 @@ const TopBanner = ({ className }) => {
         className,
       )}
     >
-      <div className='flex flex-col items-center pt-22 px-4 gap-12 lg:flex-row lg:max-w-[1120px] lg:items-start lg:pt-0'>
+      <div className='flex flex-col items-center pt-22 px-4 gap-12 lg:flex-row  lg:w-[1120px] lg:items-start lg:pt-0 '>
         <div className='flex flex-col items-center gap-8 lg:items-start lg:h-full lg:justify-center'>
           <div className='flex flex-col items-center gap-4 lg:items-start'>
             <div className='font-semibold text-[25px] leading-8 text-banner-dark-gray'>
               Pro.Beyond.
             </div>
             <div className='text-white text-7xl tracking-[-1%] font-thin text-center'>
-              IPhone 14 <span className='font-semibold'>Pro</span>
+              IPhone 14 <div className='font-semibold lg:inline'>Pro</div>
             </div>
             <div className='text-banner-light-gray text-[19px] font-medium text-center'>
-              Created to change everything for the better. For everyone
+              Created to change everything for the
+              <div className='lg:inline'> better. For everyone</div>
             </div>
           </div>
           {/* 임시 버튼 */}
