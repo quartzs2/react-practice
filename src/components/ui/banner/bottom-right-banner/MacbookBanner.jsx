@@ -6,7 +6,7 @@ const MacbookBanner = ({ className }) => {
   return (
     <div
       className={cn(
-        'bg-bg-gray h-[504px] py-10 px-4 flex gap-6 flex-col items-center lg:flex-row lg:justify-between lg:px-0 lg:pl-14 ',
+        'bg-bg-gray h-[504px] py-10 px-4 flex gap-6 flex-col items-center overflow-hidden lg:flex-row lg:justify-between lg:px-0 lg:pl-14 lg:h-150',
         className,
       )}
     >
