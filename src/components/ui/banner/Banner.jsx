@@ -9,10 +9,10 @@ const Banner = () => {
     <div>
       <TopBanner />
       <div className='lg:grid lg:grid-cols-4 lg:grid-rows-2'>
-        <AirPodsBanner className='lg:col-start-1 lg:col-span-1 lg:row-start-2 lg:row-span-1' />
-        <VisionProBanner className='lg:col-start-2 lg:col-span-1 lg:row-start-2 lg:row-span-1' />
-        <PlaystationBanner className='lg:col-start-1 lg:col-span-2 lg:row-start-1 lg:row-span-1' />
-        <MacbookBanner className='lg:col-span-2 lg:col-start-3 lg:row-start-1 lg:row-span-2' />
+        <AirPodsBanner className='lg:col-span-1 lg:col-start-1 lg:row-span-1 lg:row-start-2' />
+        <VisionProBanner className='lg:col-span-1 lg:col-start-2 lg:row-span-1 lg:row-start-2' />
+        <PlaystationBanner className='lg:col-span-2 lg:col-start-1 lg:row-span-1 lg:row-start-1' />
+        <MacbookBanner className='lg:col-span-2 lg:col-start-3 lg:row-span-2 lg:row-start-1' />
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ const Icon = ({ icon, size, className }) => {
 
   return (
     <div
-      className={cn('flex justify-center items-center', className)}
+      className={cn('flex items-center justify-center', className)}
       style={{ width: size, height: size }}
     >
       <ImgIcon />
