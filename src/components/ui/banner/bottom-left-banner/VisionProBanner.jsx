@@ -10,8 +10,16 @@ const VisionProBanner = ({ className }) => {
         className,
       )}
     >
-      <img className='w-[326px] h-[193px] scale-x-[-1] lg:hidden' src={visionProImg} />
-      <img className='w-[136px] h-[190px] hidden lg:block' src={visionProPCImg} />
+      <img
+        className='w-[326px] h-[193px] scale-x-[-1] lg:hidden'
+        src={visionProImg}
+        alt='visionPro for Mobile'
+      />
+      <img
+        className='w-[136px] h-[190px] hidden lg:block'
+        src={visionProPCImg}
+        alt='visionPro for PC'
+      />
       <div className='flex flex-col gap-2'>
         <div className='font-light text-white text-[34px] leading-10 text-center lg:text-start lg:flex lg:flex-col lg:text-[29px]'>
           <span>Apple</span>{' '}

@@ -10,7 +10,11 @@ const MacbookBanner = ({ className }) => {
         className,
       )}
     >
-      <img className='w-[330px] h-[200px] lg:hidden ' src={MacBookMobileImg} />
+      <img
+        className='w-[330px] h-[200px] lg:hidden '
+        src={MacBookMobileImg}
+        alt='MacBook for Mobile'
+      />
       <div className='flex flex-col gap-2 lg:gap-4'>
         <div className='font-medium text-[34px] leading-10 text-center lg:text-[64px] lg:font-thin lg:flex lg:flex-col lg:items-start lg:gap-4'>
           <span>Macbook</span> <span className='font-light lg:font-medium'>Air</span>
@@ -24,7 +28,11 @@ const MacbookBanner = ({ className }) => {
           Shop Now
         </div>
       </div>
-      <img className='w-[292px] h-[502px] hidden lg:block lg:py-11' src={MacBookPCImg} />
+      <img
+        className='w-[292px] h-[502px] hidden lg:block lg:py-11'
+        src={MacBookPCImg}
+        alt='MacBook for PC'
+      />
     </div>
   );
 };

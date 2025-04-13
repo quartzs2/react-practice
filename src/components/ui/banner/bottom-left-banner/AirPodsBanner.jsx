@@ -10,8 +10,8 @@ const AirPodsBanner = ({ className }) => {
         className,
       )}
     >
-      <img className='w-[192px] h-[200px] lg:hidden' src={airPodImg} />
-      <img className='w-[104px] h-[272px] hidden lg:block' src={airPodPCImg} />
+      <img className='w-[192px] h-[200px] lg:hidden' src={airPodImg} alt='airPod for Mobile' />
+      <img className='w-[104px] h-[272px] hidden lg:block' src={airPodPCImg} alt='airPod for PC' />
       <div className='flex flex-col gap-2'>
         <div className='font-light text-[34px] leading-10 text-center lg:text-start lg:text-[29px] lg:flex lg:flex-col'>
           <span>Apple</span> <span>AirPods</span> <span className='font-medium'>Max</span>
