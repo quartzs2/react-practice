@@ -1,26 +1,32 @@
 import { Route, Routes } from 'react-router';
 import Layout from './components/Layout';
-import Main from './pages/Main';
-import About from './pages/About';
-import ContactUs from './pages/ContactUs';
-import Favorites from './pages/Favorites';
-import UserInfo from './pages/UserInfo';
-import Blog from './pages/Blog';
-import Cart from './pages/Cart';
-import NotFound from './pages/NotFound';
+import About from '@/pages/About';
+import Blog from '@/pages/Blog';
+import Cart from '@/pages/Cart';
+import ContactUs from '@/pages/ContactUs';
+import Favorites from '@/pages/Favorites';
+import Main from '@/pages/Main';
+import NotFound from '@/pages/NotFound';
+import UserInfo from '@/pages/UserInfo';
 
 function App() {
+  const ROUTES = [
+    { path: '/', element: <Main /> },
+    { path: 'about', element: <About /> },
+    { path: 'contact-us', element: <ContactUs /> },
+    { path: 'blog', element: <Blog /> },
+    { path: 'favorites', element: <Favorites /> },
+    { path: 'cart', element: <Cart /> },
+    { path: 'user-info', element: <UserInfo /> },
+    { path: '*', element: <NotFound /> },
+  ];
+
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
-        <Route index element={<Main />} />
-        <Route path='about' element={<About />} />
-        <Route path='contact-us' element={<ContactUs />} />
-        <Route path='blog' element={<Blog />} />
-        <Route path='favorites' element={<Favorites />} />
-        <Route path='cart' element={<Cart />} />
-        <Route path='user-info' element={<UserInfo />} />
-        <Route path='*' element={<NotFound />} />
+        {ROUTES.map((route) => (
+          <Route key={route.path} path={route.path} element={route.element} />
+        ))}
       </Route>
     </Routes>
   );
