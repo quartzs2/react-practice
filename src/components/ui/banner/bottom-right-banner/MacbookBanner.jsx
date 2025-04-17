@@ -1,6 +1,8 @@
 import cn from '@utils/cn';
 import MacBookPCImg from '@assets/Images/main/banner/bottom/MacBookPC.png';
 import MacBookMobileImg from '@assets/Images/main/banner/bottom/MacBookMobile.png';
+import Button from '@components/ui/buttons/Button';
+import { BUTTON_ARROW, BUTTON_STYLE, BUTTON_THICKNESS } from '@/constants/button';
 
 const MacbookBanner = ({ className }) => {
   return (
@@ -23,10 +25,12 @@ const MacbookBanner = ({ className }) => {
           The new 15-inch MacBook Air makes room for more of what you love with a spacious Liquid
           Retina display.
         </div>
-        {/* 임시 버튼 */}
-        <div className='flex h-[56px] w-[343px] items-center justify-center rounded-[6px] border-1 border-black'>
-          Shop Now
-        </div>
+        <Button
+          content='Shop Now'
+          thickness={BUTTON_THICKNESS.THICK}
+          arrow={BUTTON_ARROW.OFF}
+          style={BUTTON_STYLE.BLACK_STROKE}
+        />
       </div>
       <img
         className='hidden h-[502px] w-[292px] lg:block lg:py-11'
