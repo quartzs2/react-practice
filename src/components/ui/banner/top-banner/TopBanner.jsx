@@ -1,5 +1,7 @@
 import phoneImg from '@assets/Images/main/banner/top/phone.png';
 import cn from '@utils/cn';
+import Button from '@components/ui/buttons/Button';
+import { BUTTON_ARROW, BUTTON_STYLE, BUTTON_THICKNESS } from '@/constants/button';
 
 const TopBanner = ({ className }) => {
   return (
@@ -23,10 +25,12 @@ const TopBanner = ({ className }) => {
               <div className='lg:inline'> better. For everyone</div>
             </div>
           </div>
-          {/* 임시 버튼 */}
-          <div className='flex h-[56px] w-[191px] items-center justify-center rounded-[6px] border-1 border-white text-white'>
-            Shop Now
-          </div>
+          <Button
+            content='Shop Now'
+            thickness={BUTTON_THICKNESS.THICK}
+            arrow={BUTTON_ARROW.OFF}
+            style={BUTTON_STYLE.WHITE_STROKE}
+          />
         </div>
         <img className='max-w-[406px] lg:pt-22' src={phoneImg} alt='phoneImg' />
       </div>
