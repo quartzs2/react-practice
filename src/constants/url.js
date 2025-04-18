@@ -4,3 +4,5 @@ export const NAVIGATION_URL = {
   '/contact-us': 'ContactUs',
   '/blog': 'Blog',
 };
+
+export const DEFAULT_META_DATA_URL = 'http://localhost:5173';

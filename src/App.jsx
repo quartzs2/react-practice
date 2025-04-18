@@ -8,6 +8,7 @@ import Favorites from '@/pages/Favorites';
 import Main from '@/pages/Main';
 import NotFound from '@/pages/NotFound';
 import UserInfo from '@/pages/UserInfo';
+import Products from './pages/Products';
 
 function App() {
   const ROUTES = [
@@ -18,6 +19,7 @@ function App() {
     { path: 'favorites', element: <Favorites /> },
     { path: 'cart', element: <Cart /> },
     { path: 'user-info', element: <UserInfo /> },
+    { path: 'products/:catalog', element: <Products /> },
     { path: '*', element: <NotFound /> },
   ];
 
