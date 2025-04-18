@@ -17,7 +17,7 @@ const MacbookBanner = ({ className }) => {
         src={MacBookMobileImg}
         alt='MacBook for Mobile'
       />
-      <div className='flex flex-col gap-2 lg:gap-4'>
+      <div className='flex flex-col items-center gap-2 lg:items-start lg:gap-4'>
         <div className='text-center text-[34px] leading-10 font-medium lg:flex lg:flex-col lg:items-start lg:gap-4 lg:text-[64px] lg:font-thin'>
           <span>Macbook</span> <span className='font-light lg:font-medium'>Air</span>
         </div>
