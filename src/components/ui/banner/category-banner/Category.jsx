@@ -1,9 +1,14 @@
 import Icon from '@/components/icons/Icon';
 import cn from '@/utils/cn';
+import { useNavigate } from 'react-router';
 
 const Category = ({ name, image, className }) => {
+  const navigate = useNavigate();
+  const handleClick = () => navigate(`products/${name}`);
+
   return (
-    <div
+    <button
+      onClick={handleClick}
       className={cn(
         'bg-bg-gray flex h-32 w-40 flex-col items-center justify-center gap-2 rounded-[15px] px-13 py-6',
         className,
@@ -19,7 +24,7 @@ const Category = ({ name, image, className }) => {
           </span>
         </>
       )}
-    </div>
+    </button>
   );
 };
 export default Category;

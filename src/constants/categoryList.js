@@ -6,10 +6,10 @@ import ComputerIcon from '@assets/Images/icons/48px/icon_computer.svg?react';
 import GamingIcon from '@assets/Images/icons/48px/icon_gaming.svg?react';
 
 export const initialCategories = [
-  { name: 'Phones', image: PhoneIcon, url: '' },
-  { name: 'Smart Watches', image: WatchIcon, url: '' },
-  { name: 'Cameras', image: CameraIcon, url: '' },
+  { name: 'Phones', image: PhoneIcon },
+  { name: 'Smart Watches', image: WatchIcon },
+  { name: 'Cameras', image: CameraIcon },
   { name: 'Headphones', image: HeadphoneIcon, url: '' },
-  { name: 'Computers', image: ComputerIcon, url: '' },
-  { name: 'Gaming', image: GamingIcon, url: '' },
+  { name: 'Computers', image: ComputerIcon },
+  { name: 'Gaming', image: GamingIcon },
 ];
