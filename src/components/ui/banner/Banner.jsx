@@ -3,6 +3,7 @@ import PlaystationBanner from './bottom-left-banner/PlaystationBanner';
 import VisionProBanner from './bottom-left-banner/VisionProBanner';
 import MacbookBanner from './bottom-right-banner/MacbookBanner';
 import CategoryBanner from './category-banner/CategoryBanner';
+import ProductsBanner from './products-banner/ProductsBanner';
 import TopBanner from './top-banner/TopBanner';
 
 const Banner = () => {
@@ -16,6 +17,7 @@ const Banner = () => {
         <MacbookBanner className='lg:col-span-2 lg:col-start-3 lg:row-span-2 lg:row-start-1' />
       </div>
       <CategoryBanner />
+      <ProductsBanner />
     </div>
   );
 };
