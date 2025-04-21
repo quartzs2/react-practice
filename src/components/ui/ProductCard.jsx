@@ -3,6 +3,8 @@ import cn from '@/utils/cn';
 import FavoriteDuotoneIcon from '@assets/Images/icons/32px/icon_favorite_duotone.svg?react';
 import Button from './buttons/Button';
 import { BUTTON_ARROW, BUTTON_STYLE, BUTTON_THICKNESS } from '@/constants/button';
+import { useEffect, useState } from 'react';
+import { LOCAL_STORAGE_FAVORITES_KEY } from '@/constants/localStorageKey';
 
 const ProductCardSkeleton = () => {
   return (
@@ -38,8 +40,26 @@ const ProductCardSkeleton = () => {
   );
 };
 
-const ProductCard = ({ className, id, image, title, price, isLoading, isLike, setIsLike }) => {
-  const handleLikeClick = () => setIsLike(!isLike);
+const ProductCard = ({ className, id, image, title, price, isLoading }) => {
+  const [isLike, setIsLike] = useState(false);
+  const handleLikeClick = () => {
+    const favorites = JSON.parse(localStorage.getItem(LOCAL_STORAGE_FAVORITES_KEY)) ?? [];
+    if (isLike) {
+      favorites.pop(id);
+    } else {
+      favorites.push(id);
+    }
+    localStorage.setItem(LOCAL_STORAGE_FAVORITES_KEY, JSON.stringify(favorites));
+    setIsLike(!isLike);
+  };
+
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem(LOCAL_STORAGE_FAVORITES_KEY)) ?? [];
+
+    if (favorites.includes(id)) {
+      setIsLike(true);
+    }
+  }, [id]);
 
   if (isLoading) {
     return <ProductCardSkeleton />;
