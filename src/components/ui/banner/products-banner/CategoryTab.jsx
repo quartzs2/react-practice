@@ -1,23 +1,23 @@
 import cn from '@/utils/cn';
-import { useState, useRef, useLayoutEffect, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
 const CategoryTab = ({ currentIdx, setCurrentIdx, categories }) => {
-  const [isOverflow, setIsOverflow] = useState(false);
+  // const [isOverflow, setIsOverflow] = useState(false);
   const tabRef = useRef(null);
 
   const handleTabClick = (idx) => {
     setCurrentIdx(idx);
   };
 
-  useLayoutEffect(() => {
-    const { current } = tabRef;
+  // useLayoutEffect(() => {
+  //   const { current } = tabRef;
 
-    if (current) {
-      const hasOverflow = current.scrollWidth > current.clientWidth;
+  //   if (current) {
+  //     const hasOverflow = current.offsetWidth > current.offsetWidth;
 
-      setIsOverflow(hasOverflow);
-    }
-  }, [tabRef]);
+  //     setIsOverflow(hasOverflow);
+  //   }
+  // }, [tabRef]);
 
   useEffect(() => {
     const { current } = tabRef;
@@ -46,7 +46,7 @@ const CategoryTab = ({ currentIdx, setCurrentIdx, categories }) => {
       isMouseDown = false;
     };
 
-    if (current && isOverflow) {
+    if (current) {
       current.addEventListener('mousedown', handleMouseDown);
       current.addEventListener('mousemove', handleMouseMove);
       current.addEventListener('mouseleave', handleMouseLeave);
@@ -59,12 +59,12 @@ const CategoryTab = ({ currentIdx, setCurrentIdx, categories }) => {
       current.removeEventListener('mouseleave', handleMouseLeave);
       current.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isOverflow]);
+  }, []);
 
   return (
     <div
       ref={tabRef}
-      className='no-scrollbar flex gap-8 overflow-x-scroll lg:w-full lg:max-w-[1120px]'
+      className='no-scrollbar flex w-[344px] max-w-full gap-8 overflow-x-scroll whitespace-nowrap md:w-[836px] xl:w-[1120px]'
     >
       {categories.map(({ id, name }, idx) => {
         return (

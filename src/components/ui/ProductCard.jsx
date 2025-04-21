@@ -8,7 +8,7 @@ const ProductCardSkeleton = () => {
   return (
     <div
       className={cn(
-        'flex h-88 w-41 flex-col items-center gap-4 rounded-[9px] border-1 border-gray-100 bg-white px-3 py-6 lg:h-108 lg:w-67 lg:px-4',
+        'flex h-88 w-41 flex-col items-center gap-4 rounded-[9px] border-1 border-gray-100 bg-white px-3 py-6 md:h-108 md:w-67 md:px-4',
       )}
     >
       <div className={cn('flex w-full justify-end')}>
@@ -20,19 +20,19 @@ const ProductCardSkeleton = () => {
       </div>
       <div
         className={cn(
-          'h-26 w-26 animate-pulse rounded-lg bg-gray-200 object-cover lg:h-40 lg:w-40',
+          'h-26 w-26 animate-pulse rounded-md bg-gray-200 object-cover md:h-40 md:w-40',
         )}
       />
 
       <div className='flex flex-col items-center gap-6'>
-        <div className='flex h-22 w-35 flex-col items-center gap-4 lg:h-22 lg:w-59'>
+        <div className='flex h-22 w-35 flex-col items-center gap-4 md:h-22 md:w-59'>
           <div className='flex flex-col gap-2'>
-            <div className='h-5 w-35 animate-pulse rounded-xl bg-gray-200 lg:w-59'></div>
-            <div className='h-5 w-35 animate-pulse rounded-xl bg-gray-200 lg:w-59'></div>
+            <div className='h-5 w-35 animate-pulse rounded-xl bg-gray-200 md:w-59'></div>
+            <div className='h-5 w-35 animate-pulse rounded-xl bg-gray-200 md:w-59'></div>
           </div>
-          <div className='h-6 w-35 animate-pulse rounded-xl bg-gray-200 lg:w-59'></div>
+          <div className='h-6 w-35 animate-pulse rounded-xl bg-gray-200 md:w-59'></div>
         </div>
-        <div className={cn('h-12 w-35 animate-pulse rounded-lg bg-gray-200 lg:w-[183px]')} />
+        <div className={cn('h-12 w-35 animate-pulse rounded-md bg-gray-200 md:w-[183px]')} />
       </div>
     </div>
   );
@@ -47,7 +47,7 @@ const ProductCard = ({ className, id, image, title, price, isLoading, isLike, se
   return (
     <div
       className={cn(
-        'bg-bg-card-gray flex h-88 w-41 flex-col items-center gap-4 rounded-[9px] px-3 py-6 lg:h-108 lg:w-67 lg:px-4',
+        'bg-bg-card-gray flex h-88 w-41 flex-col items-center gap-4 rounded-[9px] px-3 py-6 md:h-108 md:w-67 md:px-4',
         className,
       )}
     >
@@ -61,14 +61,16 @@ const ProductCard = ({ className, id, image, title, price, isLoading, isLike, se
         />
       </button>
 
-      <img
-        className={cn('h-26 w-26 rounded-lg object-cover lg:h-40 lg:w-40')}
-        src={image}
-        alt='product'
-      />
+      <div className='h-26 w-26 md:h-40 md:w-40'>
+        <img
+          className={cn('h-26 w-26 rounded-md object-cover md:h-40 md:w-40')}
+          src={image}
+          alt='product'
+        />
+      </div>
 
-      <div className='flex flex-col items-center gap-6'>
-        <div className='flex h-22 w-35 flex-col items-center gap-4 lg:h-22 lg:w-59'>
+      <div className='flex h-38 flex-col items-center justify-between gap-2'>
+        <div className='flex h-22 w-35 flex-col items-center gap-4 md:h-22 md:w-59'>
           <div className='text-center text-base leading-6 font-medium'>{title}</div>
           <div className='text-center text-2xl leading-6 font-semibold tracking-[3%]'>${price}</div>
         </div>
@@ -77,7 +79,7 @@ const ProductCard = ({ className, id, image, title, price, isLoading, isLike, se
           thickness={BUTTON_THICKNESS.THIN}
           arrow={BUTTON_ARROW.OFF}
           style={BUTTON_STYLE.FILL}
-          className={cn('w-35 lg:w-[183px]')}
+          className={cn('w-35 md:w-[183px]')}
         />
       </div>
     </div>
