@@ -38,7 +38,7 @@ const ProductCardSkeleton = () => {
   );
 };
 
-const ProductCard = ({ className, image, title, price, isLoading, isLike, setIsLike }) => {
+const ProductCard = ({ className, id, image, title, price, isLoading, isLike, setIsLike }) => {
   const handleLikeClick = () => setIsLike(!isLike);
 
   if (isLoading) {

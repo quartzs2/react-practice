@@ -1,9 +1,7 @@
 import cn from '@/utils/cn';
-import { categories } from '@/constants/categoryList';
 import { useState, useRef, useLayoutEffect, useEffect } from 'react';
 
-const CategoryTab = () => {
-  const [currentIdx, setCurrentIdx] = useState(0);
+const CategoryTab = ({ currentIdx, setCurrentIdx, categories }) => {
   const [isOverflow, setIsOverflow] = useState(false);
   const tabRef = useRef(null);
 

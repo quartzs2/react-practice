@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import AirPodsBanner from './bottom-left-banner/AirPodsBanner';
 import PlaystationBanner from './bottom-left-banner/PlaystationBanner';
 import VisionProBanner from './bottom-left-banner/VisionProBanner';
@@ -7,6 +8,14 @@ import ProductsBanner from './products-banner/ProductsBanner';
 import TopBanner from './top-banner/TopBanner';
 
 const Banner = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch('https://api.escuelajs.co/api/v1/categories?limit=6')
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
+  }, []);
+
   return (
     <div>
       <TopBanner />
@@ -17,7 +26,7 @@ const Banner = () => {
         <MacbookBanner className='lg:col-span-2 lg:col-start-3 lg:row-span-2 lg:row-start-1' />
       </div>
       <CategoryBanner />
-      <ProductsBanner />
+      <ProductsBanner categories={categories} />
     </div>
   );
 };
