@@ -1,8 +1,19 @@
 @import 'tailwindcss';
 
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 @theme {
   --color-bg-gray: #ededed;
   --color-light-gray: #f5f5f5;
+  --color-bg-card-gray: #f6f6f6;
   --color-light-gray-text: #b2b2b2;
   --color-dark-gray-text: #969696;
   --color-banner-top-background: #211c24;
