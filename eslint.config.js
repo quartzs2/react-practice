@@ -3,8 +3,10 @@ import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 export default [
+  jsxA11y.flatConfigs.recommended,
   { ignores: ['dist'] },
   {
     files: ['**/*.{js,jsx}'],

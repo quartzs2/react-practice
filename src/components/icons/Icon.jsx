@@ -1,14 +1,14 @@
 import cn from '@/utils/cn';
 
-const Icon = ({ icon, size, className }) => {
+const Icon = ({ icon, size, className, classNameIcon }) => {
   const ImgIcon = icon;
 
   return (
     <div
-      className={cn('flex justify-center items-center', className)}
+      className={cn('flex items-center justify-center', className)}
       style={{ width: size, height: size }}
     >
-      <ImgIcon />
+      <ImgIcon className={cn(classNameIcon)} />
     </div>
   );
 };
