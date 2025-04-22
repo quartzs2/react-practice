@@ -44,12 +44,11 @@ const ProductCard = ({ className, id, image, title, price, isLoading }) => {
   const [isLike, setIsLike] = useState(false);
   const handleLikeClick = () => {
     const favorites = JSON.parse(localStorage.getItem(LOCAL_STORAGE_FAVORITES_KEY)) ?? [];
-    if (isLike) {
-      favorites.pop(id);
-    } else {
-      favorites.push(id);
-    }
-    localStorage.setItem(LOCAL_STORAGE_FAVORITES_KEY, JSON.stringify(favorites));
+    const newFavorites = isLike
+      ? favorites.filter((favorite) => favorite.id !== id)
+      : [...favorites, id];
+
+    localStorage.setItem(LOCAL_STORAGE_FAVORITES_KEY, JSON.stringify(newFavorites));
     setIsLike(!isLike);
   };
 
