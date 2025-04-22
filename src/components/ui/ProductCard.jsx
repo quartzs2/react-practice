@@ -66,7 +66,7 @@ const ProductCard = ({ className, id, image, title, price, isLoading }) => {
   return (
     <div
       className={cn(
-        'bg-bg-card-gray flex h-88 w-41 flex-col items-center gap-4 rounded-[9px] px-3 py-6 md:h-108 md:w-67 md:px-4',
+        'bg-bg-card-gray flex h-88 w-41 flex-col items-center gap-2 rounded-[9px] px-3 py-6 md:h-108 md:w-67 md:gap-4 md:px-4',
         className,
       )}
     >
@@ -88,9 +88,9 @@ const ProductCard = ({ className, id, image, title, price, isLoading }) => {
         />
       </div>
 
-      <div className='flex h-38 flex-col items-center justify-between gap-2'>
+      <div className='flex h-38 flex-col items-center justify-between gap-4'>
         <div className='flex h-22 w-35 flex-col items-center gap-4 md:h-22 md:w-59'>
-          <div className='text-center text-base leading-6 font-medium'>{title}</div>
+          <div className='text-overflow text-center text-base leading-6 font-medium'>{title}</div>
           <div className='text-center text-2xl leading-6 font-semibold tracking-[3%]'>${price}</div>
         </div>
         <Button
