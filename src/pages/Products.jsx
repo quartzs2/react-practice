@@ -1,5 +1,5 @@
-import Metadata from '@/components/Metadata';
-import { DEFAULT_META_DATA_URL } from '@/constants/url';
+import Metadata from '@components/Metadata';
+import { DEFAULT_META_DATA_URL } from '@constants/url';
 import { useParams } from 'react-router';
 
 const Products = () => {

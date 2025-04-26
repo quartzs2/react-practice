@@ -1,7 +1,7 @@
-import { BUTTON_ARROW, BUTTON_STYLE, BUTTON_TYPE } from '@/constants/button';
-import cn from '@/utils/cn';
+import { BUTTON_ARROW, BUTTON_STYLE, BUTTON_TYPE } from '@constants/button';
+import cn from '@utils/cn';
 import ArrowDownIcon from '@assets/Images/icons/24px/icon_down_arrow.svg?react';
-import Icon from '@/components/icons/Icon';
+import Icon from '@components/icons/Icon';
 
 const Button = ({ content, thickness, arrow, style, className }) => {
   return (

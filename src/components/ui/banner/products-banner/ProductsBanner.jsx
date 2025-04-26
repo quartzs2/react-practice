@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import CategoryTab from './CategoryTab';
-import ProductCard from '../../ProductCard';
+import CategoryTab from '@components/ui/banner/products-banner/CategoryTab';
+import ProductCard from '@components/ui/ProductCard';
 
 const ProductsBanner = ({ categories }) => {
   const [currentIdx, setCurrentIdx] = useState(0);

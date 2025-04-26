@@ -1,7 +1,7 @@
 import phoneImg from '@assets/Images/main/banner/top/phone.png';
 import cn from '@utils/cn';
 import Button from '@components/ui/buttons/Button';
-import { BUTTON_ARROW, BUTTON_STYLE, BUTTON_THICKNESS } from '@/constants/button';
+import { BUTTON_ARROW, BUTTON_STYLE, BUTTON_THICKNESS } from '@constants/button';
 
 const TopBanner = ({ className }) => {
   return (

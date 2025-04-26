@@ -1,4 +1,4 @@
-import cn from '@/utils/cn';
+import cn from '@utils/cn';
 import { useRef, useEffect } from 'react';
 
 const CategoryTab = ({ currentIdx, setCurrentIdx, categories }) => {
