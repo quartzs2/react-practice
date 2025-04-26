@@ -69,6 +69,7 @@ const CategoryTab = ({ currentIdx, setCurrentIdx, categories }) => {
       {categories.map(({ id, name }, idx) => {
         return (
           <button
+            type='button'
             key={id}
             onClick={() => handleTabClick(idx)}
             className={cn(

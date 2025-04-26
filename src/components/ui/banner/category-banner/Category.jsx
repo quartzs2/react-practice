@@ -8,6 +8,7 @@ const Category = ({ name, image, className, slug }) => {
 
   return (
     <button
+      type='button'
       onClick={handleClick}
       className={cn(
         'bg-bg-gray flex h-32 w-40 flex-col items-center justify-center gap-2 rounded-[15px] px-13 py-6',
