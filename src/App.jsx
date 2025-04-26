@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router';
-import Layout from './components/Layout';
-import About from '@/pages/About';
-import Blog from '@/pages/Blog';
-import Cart from '@/pages/Cart';
-import ContactUs from '@/pages/ContactUs';
-import Favorites from '@/pages/Favorites';
-import Main from '@/pages/Main';
-import NotFound from '@/pages/NotFound';
-import UserInfo from '@/pages/UserInfo';
-import Products from './pages/Products';
+import Layout from '@components/Layout';
+import About from '@pages/About';
+import Blog from '@pages/Blog';
+import Cart from '@pages/Cart';
+import ContactUs from '@pages/ContactUs';
+import Favorites from '@pages/Favorites';
+import Main from '@pages/Main';
+import NotFound from '@pages/NotFound';
+import UserInfo from '@pages/UserInfo';
+import Products from '@pages/Products';
 
 function App() {
   const ROUTES = [

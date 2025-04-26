@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import AirPodsBanner from './bottom-left-banner/AirPodsBanner';
-import PlaystationBanner from './bottom-left-banner/PlaystationBanner';
-import VisionProBanner from './bottom-left-banner/VisionProBanner';
-import MacbookBanner from './bottom-right-banner/MacbookBanner';
-import CategoryBanner from './category-banner/CategoryBanner';
-import ProductsBanner from './products-banner/ProductsBanner';
-import TopBanner from './top-banner/TopBanner';
+import AirPodsBanner from '@components/ui/banner/bottom-left-banner/AirPodsBanner';
+import PlaystationBanner from '@components/ui/banner/bottom-left-banner/PlaystationBanner';
+import VisionProBanner from '@components/ui/banner/bottom-left-banner/VisionProBanner';
+import MacbookBanner from '@components/ui/banner/bottom-right-banner/MacbookBanner';
+import CategoryBanner from '@components/ui/banner/category-banner/CategoryBanner';
+import ProductsBanner from '@components/ui/banner/products-banner/ProductsBanner';
+import TopBanner from '@components/ui/banner/top-banner/TopBanner';
 
 const Banner = () => {
   const [categories, setCategories] = useState([]);

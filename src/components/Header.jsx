@@ -1,8 +1,8 @@
-import Logo from './icons/Logo';
-import Hamburger from './ui/header/Hamburger';
-import Icons from './ui/header/Icons';
-import Navigation from './ui/header/Navigation';
-import SearchBar from './ui/header/SearchBar';
+import Logo from '@components/icons/Logo';
+import Hamburger from '@components/ui/header/Hamburger';
+import Icons from '@components/ui/header/Icons';
+import Navigation from '@components/ui/header/Navigation';
+import SearchBar from '@components/ui/header/SearchBar';
 
 const Header = () => {
   return (

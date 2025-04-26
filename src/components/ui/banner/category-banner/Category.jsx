@@ -1,5 +1,5 @@
-import Icon from '@/components/icons/Icon';
-import cn from '@/utils/cn';
+import Icon from '@components/icons/Icon';
+import cn from '@utils/cn';
 import { useNavigate } from 'react-router';
 
 const Category = ({ name, image, className, slug }) => {

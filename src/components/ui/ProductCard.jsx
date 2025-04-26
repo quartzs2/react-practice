@@ -1,10 +1,10 @@
-import Icon from '@/components/icons/Icon';
-import cn from '@/utils/cn';
+import Icon from '@components/icons/Icon';
+import cn from '@utils/cn';
 import FavoriteDuotoneIcon from '@assets/Images/icons/32px/icon_favorite_duotone.svg?react';
-import Button from './buttons/Button';
-import { BUTTON_ARROW, BUTTON_STYLE, BUTTON_THICKNESS } from '@/constants/button';
+import Button from '@components/ui/buttons/Button';
+import { BUTTON_ARROW, BUTTON_STYLE, BUTTON_THICKNESS } from '@constants/button';
 import { useEffect, useState } from 'react';
-import { LOCAL_STORAGE_FAVORITES_KEY } from '@/constants/localStorageKey';
+import { LOCAL_STORAGE_FAVORITES_KEY } from '@constants/localStorageKey';
 
 const ProductCardSkeleton = () => {
   return (
