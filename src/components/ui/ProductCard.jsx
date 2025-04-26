@@ -70,7 +70,11 @@ const ProductCard = ({ className, id, image, title, price, isLoading }) => {
         className,
       )}
     >
-      <button className={cn('flex w-full cursor-pointer justify-end')} onClick={handleLikeClick}>
+      <button
+        type='button'
+        className={cn('flex w-full cursor-pointer justify-end')}
+        onClick={handleLikeClick}
+      >
         <Icon
           classNameIcon={cn('stroke-[#919191] stroke-[1.4]', {
             'fill-[#ff0000] stroke-none': isLike,

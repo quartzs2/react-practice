@@ -6,6 +6,7 @@ import Icon from '@/components/icons/Icon';
 const Button = ({ content, thickness, arrow, style, className }) => {
   return (
     <button
+      type='button'
       className={cn(
         'flex items-center justify-center gap-2 rounded-lg border-1 text-center text-base leading-6 font-medium',
         BUTTON_TYPE[thickness][arrow],

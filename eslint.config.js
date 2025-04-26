@@ -42,6 +42,7 @@ export default [
       'prefer-const': 'error',
       'no-var': 'error',
       'react/button-has-type': 'error',
+      'react/prop-types': 'off',
     },
   },
   eslintConfigPrettier,
