@@ -2,7 +2,7 @@ import cn from '@utils/cn';
 import MacBookPCImg from '@assets/Images/main/banner/bottom/MacBookPC.png';
 import MacBookMobileImg from '@assets/Images/main/banner/bottom/MacBookMobile.png';
 import Button from '@components/ui/buttons/Button';
-import { BUTTON_ARROW, BUTTON_STYLE, BUTTON_THICKNESS } from '@/constants/button';
+import { BUTTON_ARROW, BUTTON_STYLE, BUTTON_THICKNESS } from '@constants/button';
 
 const MacbookBanner = ({ className }) => {
   return (
