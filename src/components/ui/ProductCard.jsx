@@ -2,7 +2,7 @@ import Icon from '@components/icons/Icon';
 import cn from '@utils/cn';
 import FavoriteDuotoneIcon from '@assets/Images/icons/32px/icon_favorite_duotone.svg?react';
 import Button from '@components/ui/buttons/Button';
-import { BUTTON_ARROW, BUTTON_STYLE, BUTTON_THICKNESS } from '@constants/button';
+import { BUTTON_STYLE, BUTTON_THICKNESS } from '@constants/button';
 import { useEffect, useState } from 'react';
 import { LOCAL_STORAGE_FAVORITES_KEY } from '@constants/localStorageKey';
 
@@ -98,12 +98,12 @@ const ProductCard = ({ className, id, image, title, price, isLoading }) => {
           <div className='text-center text-2xl leading-6 font-semibold tracking-[3%]'>${price}</div>
         </div>
         <Button
-          content={'Buy Now'}
           thickness={BUTTON_THICKNESS.THIN}
-          arrow={BUTTON_ARROW.OFF}
           style={BUTTON_STYLE.FILL}
           className={cn('w-35 md:w-[183px]')}
-        />
+        >
+          Buy Now
+        </Button>
       </div>
     </div>
   );
