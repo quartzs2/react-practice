@@ -5,40 +5,7 @@ import Button from '@components/ui/buttons/Button';
 import { BUTTON_STYLE, BUTTON_THICKNESS } from '@constants/button';
 import { useEffect, useState } from 'react';
 import { LOCAL_STORAGE_FAVORITES_KEY } from '@constants/localStorageKey';
-
-const ProductCardSkeleton = () => {
-  return (
-    <div
-      className={cn(
-        'flex h-88 w-41 flex-col items-center gap-4 rounded-[9px] border-1 border-gray-100 bg-white px-3 py-6 md:h-108 md:w-67 md:px-4',
-      )}
-    >
-      <div className={cn('flex w-full justify-end')}>
-        <Icon
-          classNameIcon={cn('fill-gray-200 stroke-none animate-pulse')}
-          icon={FavoriteDuotoneIcon}
-          size={'32px'}
-        />
-      </div>
-      <div
-        className={cn(
-          'h-26 w-26 animate-pulse rounded-md bg-gray-200 object-cover md:h-40 md:w-40',
-        )}
-      />
-
-      <div className='flex flex-col items-center gap-6'>
-        <div className='flex h-22 w-35 flex-col items-center gap-4 md:h-22 md:w-59'>
-          <div className='flex flex-col gap-2'>
-            <div className='h-5 w-35 animate-pulse rounded-xl bg-gray-200 md:w-59'></div>
-            <div className='h-5 w-35 animate-pulse rounded-xl bg-gray-200 md:w-59'></div>
-          </div>
-          <div className='h-6 w-35 animate-pulse rounded-xl bg-gray-200 md:w-59'></div>
-        </div>
-        <div className={cn('h-12 w-35 animate-pulse rounded-md bg-gray-200 md:w-[183px]')} />
-      </div>
-    </div>
-  );
-};
+import ProductCardSkeleton from '@components/ui/common/ProductCardSkeleton';
 
 const ProductCard = ({ className, id, image, title, price, isLoading }) => {
   const [isLike, setIsLike] = useState(false);
@@ -63,6 +30,7 @@ const ProductCard = ({ className, id, image, title, price, isLoading }) => {
   if (isLoading) {
     return <ProductCardSkeleton />;
   }
+
   return (
     <div
       className={cn(
@@ -108,4 +76,5 @@ const ProductCard = ({ className, id, image, title, price, isLoading }) => {
     </div>
   );
 };
+
 export default ProductCard;
