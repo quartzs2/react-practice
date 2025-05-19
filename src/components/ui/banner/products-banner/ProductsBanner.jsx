@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import CategoryTab from '@components/ui/banner/products-banner/CategoryTab';
-import ProductCard from '@components/ui/ProductCard';
+import ProductCard from '@components/ui/common/ProductCard';
 import useFetch from '@hooks/useFetch';
 import getProductsByCategory from '@api/getProductsByCategory';
 
