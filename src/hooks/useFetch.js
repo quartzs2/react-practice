@@ -1,28 +1,57 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { isEqual } from 'lodash';
 
-const useFetch = (url, options) => {
+const useFetch = ({ enabled = true, options, query }) => {
   const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
+
+  const prevQueryRef = useRef();
+  const prevOptionRef = useRef();
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
+      setError(null);
+
       try {
-        const response = await fetch(url, options);
+        const response = await query({ ...options });
         const data = await response.json();
         setData(data);
       } catch (error) {
         setError(error);
+        setData(null);
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchData();
-  }, [url, options]);
+    if (!enabled) {
+      setData(null);
+      setError(null);
+      setIsLoading(null);
 
-  return { data, isLoading, error };
+      prevQueryRef.current = undefined;
+      prevOptionRef.current = undefined;
+      return;
+    }
+
+    if (
+      prevQueryRef.current === undefined ||
+      query !== prevQueryRef.current ||
+      !isEqual(options, prevOptionRef.current)
+    ) {
+      prevQueryRef.current = query;
+      prevOptionRef.current = options;
+      fetchData();
+    }
+  }, [query, options, enabled]);
+
+  if (!enabled) {
+    return { data: null, error: null, isLoading: null };
+  }
+
+  return { data, error, isLoading };
 };
 
 export default useFetch;
