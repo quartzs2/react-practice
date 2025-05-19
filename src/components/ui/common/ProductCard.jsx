@@ -12,7 +12,7 @@ const ProductCard = ({ className, id, image, title, price, isLoading }) => {
   const handleLikeClick = () => {
     const favorites = JSON.parse(localStorage.getItem(LOCAL_STORAGE_FAVORITES_KEY)) ?? [];
     const newFavorites = isLike
-      ? favorites.filter((favorite) => favorite.id !== id)
+      ? favorites.filter((favoriteId) => favoriteId !== id)
       : [...favorites, id];
 
     localStorage.setItem(LOCAL_STORAGE_FAVORITES_KEY, JSON.stringify(newFavorites));
