@@ -1,3 +1,4 @@
+import getCategoryList from '@api/getCategoryList';
 import AirPodsBanner from '@components/ui/banner/bottom-left-banner/AirPodsBanner';
 import PlaystationBanner from '@components/ui/banner/bottom-left-banner/PlaystationBanner';
 import VisionProBanner from '@components/ui/banner/bottom-left-banner/VisionProBanner';
@@ -8,8 +9,7 @@ import TopBanner from '@components/ui/banner/top-banner/TopBanner';
 import useFetch from '@hooks/useFetch';
 
 const Banner = () => {
-  const url = 'https://api.escuelajs.co/api/v1/categories?limit=6';
-  const { data: categories, isLoading, error } = useFetch(url);
+  const { data: categories, isLoading, error } = useFetch({ query: getCategoryList });
 
   if (error) {
     console.log('에러:', error);

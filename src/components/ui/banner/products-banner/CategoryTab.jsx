@@ -2,22 +2,11 @@ import cn from '@utils/cn';
 import { useRef, useEffect } from 'react';
 
 const CategoryTab = ({ currentIdx, setCurrentIdx, categories }) => {
-  // const [isOverflow, setIsOverflow] = useState(false);
   const tabRef = useRef(null);
 
   const handleTabClick = (idx) => {
     setCurrentIdx(idx);
   };
-
-  // useLayoutEffect(() => {
-  //   const { current } = tabRef;
-
-  //   if (current) {
-  //     const hasOverflow = current.offsetWidth > current.offsetWidth;
-
-  //     setIsOverflow(hasOverflow);
-  //   }
-  // }, [tabRef]);
 
   useEffect(() => {
     const { current } = tabRef;
@@ -66,11 +55,11 @@ const CategoryTab = ({ currentIdx, setCurrentIdx, categories }) => {
       ref={tabRef}
       className='no-scrollbar flex w-[344px] max-w-full gap-8 overflow-x-scroll whitespace-nowrap md:w-[836px] xl:w-[1120px]'
     >
-      {categories.map(({ id, name }, idx) => {
+      {categories.map((category, idx) => {
         return (
           <button
             type='button'
-            key={id}
+            key={idx}
             onClick={() => handleTabClick(idx)}
             className={cn(
               'relative size-fit cursor-pointer text-center text-base leading-8 font-medium text-[#8B8B8B]',
@@ -80,7 +69,7 @@ const CategoryTab = ({ currentIdx, setCurrentIdx, categories }) => {
               },
             )}
           >
-            {name}
+            {category}
           </button>
         );
       })}
