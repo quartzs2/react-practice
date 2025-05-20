@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react';
-import AirPodsBanner from './bottom-left-banner/AirPodsBanner';
-import PlaystationBanner from './bottom-left-banner/PlaystationBanner';
-import VisionProBanner from './bottom-left-banner/VisionProBanner';
-import MacbookBanner from './bottom-right-banner/MacbookBanner';
-import CategoryBanner from './category-banner/CategoryBanner';
-import ProductsBanner from './products-banner/ProductsBanner';
-import TopBanner from './top-banner/TopBanner';
+import getCategoryList from '@api/getCategoryList';
+import AirPodsBanner from '@components/ui/banner/bottom-left-banner/AirPodsBanner';
+import PlaystationBanner from '@components/ui/banner/bottom-left-banner/PlaystationBanner';
+import VisionProBanner from '@components/ui/banner/bottom-left-banner/VisionProBanner';
+import MacbookBanner from '@components/ui/banner/bottom-right-banner/MacbookBanner';
+import CategoryBanner from '@components/ui/banner/category-banner/CategoryBanner';
+import ProductsBanner from '@components/ui/banner/products-banner/ProductsBanner';
+import TopBanner from '@components/ui/banner/top-banner/TopBanner';
+import useFetch from '@hooks/useFetch';
 
 const Banner = () => {
-  const [categories, setCategories] = useState([]);
+  const { data: categories, isLoading, error } = useFetch({ query: getCategoryList });
 
-  useEffect(() => {
-    fetch('https://api.escuelajs.co/api/v1/categories?limit=6')
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
-  }, []);
+  if (error) {
+    console.log('에러:', error);
+    return <div>에러가 발생했습니다.</div>;
+  }
 
   return (
     <div>
@@ -26,7 +26,7 @@ const Banner = () => {
         <MacbookBanner className='lg:col-span-2 lg:col-start-3 lg:row-span-2 lg:row-start-1' />
       </div>
       <CategoryBanner />
-      <ProductsBanner categories={categories} />
+      {!isLoading && categories !== null && <ProductsBanner categories={categories} />}
     </div>
   );
 };

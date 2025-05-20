@@ -18,7 +18,7 @@ const AirPodsBanner = ({ className }) => {
         </div>
         <div className='text-banner-light-gray text-center text-base leading-6 font-medium lg:flex lg:max-w-40 lg:flex-col lg:text-start lg:text-[14px]'>
           <span>Computational audio. </span>
-          <span>Listen, it's powerful</span>
+          <span>Listen, it&apos;s powerful</span>
         </div>
       </div>
     </div>

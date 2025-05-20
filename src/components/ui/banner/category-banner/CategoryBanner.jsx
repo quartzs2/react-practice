@@ -1,7 +1,7 @@
-import Icon from '@/components/icons/Icon';
+import Icon from '@components/icons/Icon';
 import ArrowIcon from '@assets/Images/icons/32px/icon_arrow.svg?react';
-import Category from './Category';
-import { initialCategories } from '@/constants/categoryList';
+import Category from '@components/ui/banner/category-banner/Category';
+import { initialCategories } from '@constants/categoryList';
 
 const CategoryBanner = () => {
   return (

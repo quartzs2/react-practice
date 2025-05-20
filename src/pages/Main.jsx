@@ -1,5 +1,5 @@
-import Metadata from '@/components/Metadata';
-import { DEFAULT_META_DATA_URL } from '@/constants/url';
+import Metadata from '@components/Metadata';
+import { DEFAULT_META_DATA_URL } from '@constants/url';
 import Banner from '@components/ui/banner/Banner';
 
 const Main = () => {
