@@ -1,9 +1,22 @@
 import Metadata from '@components/Metadata';
 import { DEFAULT_META_DATA_URL } from '@constants/url';
 import { useParams } from 'react-router';
+import ProductCardContainer from '@components/ui/common/ProductCardContainer';
+import useFetch from '@hooks/useFetch';
+import getProductsByCategory from '@api/getProductsByCategory';
 
 const Products = () => {
   const { catalog } = useParams();
+  const { data, error, isLoading } = useFetch({
+    query: getProductsByCategory,
+    options: { categoryName: catalog },
+  });
+  const total = data?.total ?? 0;
+  const products = data?.products ?? [];
+
+  if (error) {
+    return <div>에러가 발생했습니다.</div>;
+  }
 
   return (
     <div>
@@ -14,7 +27,12 @@ const Products = () => {
         imageAlt='cyber 상품 페이지 이미지입니다. '
         description='cyber의 상품 페이지입니다.'
       />
-      <div>products</div>
+      <div className='flex justify-center'>
+        <div className='flex flex-col items-start'>
+          <div>Products Result : {total}</div>
+          <ProductCardContainer products={products} isLoading={isLoading} />
+        </div>
+      </div>
     </div>
   );
 };
