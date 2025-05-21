@@ -6,32 +6,40 @@ import getProductsByCategory from '@api/getProductsByCategory';
 import { useEffect, useState } from 'react';
 import usePagination from '@hooks/usePagination';
 import useIntersect from '@hooks/useIntersect';
+import useFetch from '@hooks/useFetch';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const { catalog } = useParams();
-  const { data, error, isLoading, fetchNextPage, hasNextPage } = usePagination({
+  const countPerPage = 6;
+
+  const { fetchNextPageQuery, hasNextPage, setHasNextPage, setCurrentSkip } = usePagination({
     query: getProductsByCategory,
     options: { categoryName: catalog },
-    countPerPage: 6,
+    countPerPage,
   });
+
+  const { data, isLoading, error } = useFetch({ query: fetchNextPageQuery });
+
   const total = data?.total ?? 0;
   const ref = useIntersect({
     onIntersect: async (entry, observer) => {
       observer.unobserve(entry.target);
       if (!isLoading && hasNextPage) {
-        fetchNextPage();
+        setCurrentSkip((prev) => prev + countPerPage);
       }
     },
   });
 
   useEffect(() => {
-    if (data) {
+    if (data && data.products) {
       setProducts((prevProducts) => [...prevProducts, ...data.products]);
+      setHasNextPage(data.products.length === countPerPage);
     }
-  }, [data]);
+  }, [data, setHasNextPage]);
 
   if (error) {
+    console.log(error);
     return <div>에러가 발생했습니다.</div>;
   }
 
