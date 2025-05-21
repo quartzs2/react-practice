@@ -1,27 +1,29 @@
-import useFetch from '@hooks/useFetch';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { isEqual } from 'lodash';
 
 const usePagination = ({ query, options, countPerPage }) => {
   const [currentSkip, setCurrentSkip] = useState(0);
   const [hasNextPage, setHasNextPage] = useState(true);
+  const [stableOptions, setStableOptions] = useState(options);
 
-  const { data, isLoading, error } = useFetch({
-    query,
-    options: { ...options, limit: countPerPage, skip: currentSkip },
-  });
-
-  const fetchNextPage = useCallback(() => {
-    if (hasNextPage) {
-      setCurrentSkip((prev) => prev + countPerPage);
-    }
-  }, [countPerPage, hasNextPage]);
+  const prevOptionsRef = useRef();
 
   useEffect(() => {
-    if (data) {
-      setHasNextPage(data.products.length === countPerPage);
+    if (!isEqual(options, prevOptionsRef.current)) {
+      setStableOptions(options);
     }
-  }, [data, countPerPage]);
+    prevOptionsRef.current = options;
+  }, [options]);
 
-  return { data, isLoading, error, fetchNextPage, hasNextPage };
+  const fetchNextPageQuery = useCallback(() => {
+    return query({
+      ...stableOptions,
+      limit: countPerPage,
+      skip: currentSkip,
+    });
+  }, [countPerPage, currentSkip, query, stableOptions]);
+
+  return { fetchNextPageQuery, hasNextPage, setHasNextPage, setCurrentSkip };
 };
+
 export default usePagination;
