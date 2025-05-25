@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import usePagination from '@hooks/usePagination';
 import useFetch from '@hooks/useFetch';
 import useIntersect from '@hooks/useIntersect';
+import { isEqual } from 'lodash';
 
 const useProductInfinityScroll = ({ countPerPage, query, options }) => {
   const [products, setProducts] = useState([]);
+
+  const prevQueryRef = useRef(query);
+  const prevOptionsRef = useRef(options);
 
   const { fetchNextPageQuery, hasNextPage, setHasNextPage, setCurrentSkip } = usePagination({
     query,
@@ -22,6 +26,16 @@ const useProductInfinityScroll = ({ countPerPage, query, options }) => {
       }
     },
   });
+
+  useEffect(() => {
+    if (query !== prevQueryRef.current || !isEqual(options, prevOptionsRef.current)) {
+      setProducts([]);
+      setCurrentSkip(0);
+      setHasNextPage(true);
+      prevQueryRef.current = query;
+      prevOptionsRef.current = options;
+    }
+  }, [options, query, setCurrentSkip, setHasNextPage]);
 
   useEffect(() => {
     if (data && data.products) {
