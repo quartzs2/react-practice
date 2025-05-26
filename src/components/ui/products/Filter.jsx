@@ -5,7 +5,7 @@ import getCategoryList from '@api/getCategoryList';
 import useFetch from '@hooks/useFetch';
 import { useNavigate, useParams } from 'react-router';
 
-const Filter = ({ className }) => {
+const Filter = ({ className, dropdownClassName }) => {
   const DROPDOWN_ITEMS = [
     {
       title: 'Category',
@@ -16,7 +16,11 @@ const Filter = ({ className }) => {
   return (
     <div className={cn('w-full max-w-[256px] gap-6', className)}>
       {DROPDOWN_ITEMS.map(({ title, Children }) => (
-        <Dropdown className={'w-full max-w-[256px]'} key={title} dropdownTitle={title}>
+        <Dropdown
+          className={cn('w-full max-w-[256px]', dropdownClassName)}
+          key={title}
+          dropdownTitle={title}
+        >
           <Children />
         </Dropdown>
       ))}

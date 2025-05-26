@@ -1,6 +1,7 @@
 export const BUTTON_STYLE = {
-  WHITE_STROKE: ' border-white text-white',
+  WHITE_STROKE: 'border-white text-white',
   BLACK_STROKE: 'border-black text-black',
+  GRAY_STROKE: 'border-[#D4D4D4]',
   FILL: 'border-0 bg-black text-white',
 };
 
