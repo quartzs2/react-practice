@@ -20,6 +20,7 @@ function App() {
     { path: 'cart', element: <Cart /> },
     { path: 'user-info', element: <UserInfo /> },
     { path: 'products/:catalog', element: <Products /> },
+    { path: 'products', element: <Products /> },
     { path: '*', element: <NotFound /> },
   ];
 
