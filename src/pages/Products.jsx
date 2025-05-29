@@ -68,6 +68,7 @@ const Products = () => {
       </section>
       <BottomSheet className={'md:hidden'}>
         <Filter className={'w-full max-w-full'} dropdownClassName={'max-w-full'} />
+        <Filter className={'w-full max-w-full'} dropdownClassName={'max-w-full'} />
       </BottomSheet>
     </main>
   );
