@@ -1,10 +1,11 @@
 import Icon from '@components/icons/Icon';
+import { PATH } from '@constants/url';
 import cn from '@utils/cn';
 import { useNavigate } from 'react-router';
 
 const Category = ({ name, image, className, slug }) => {
   const navigate = useNavigate();
-  const handleClick = () => navigate(`products/${slug}`);
+  const handleClick = () => navigate(`${PATH.PRODUCTS}/${slug}`);
 
   return (
     <button
