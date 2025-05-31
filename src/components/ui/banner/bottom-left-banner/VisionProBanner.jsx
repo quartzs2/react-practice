@@ -1,8 +1,12 @@
 import cn from '@utils/cn';
 import visionProImg from '@assets/Images/main/banner/bottom/VisionPro.png';
 import visionProPCImg from '@assets/Images/main/banner/bottom/VisionProPC.png';
+import useImageOptimization from '@hooks/useImageOptimization';
 
 const VisionProBanner = ({ className }) => {
+  const visionProRef = useImageOptimization({ src: visionProImg });
+  const visionProPCRef = useImageOptimization({ src: visionProPCImg });
+
   return (
     <div
       className={cn(
@@ -12,12 +16,12 @@ const VisionProBanner = ({ className }) => {
     >
       <img
         className='h-[193px] w-[326px] scale-x-[-1] lg:hidden'
-        src={visionProImg}
+        ref={visionProRef}
         alt='visionPro for Mobile'
       />
       <img
         className='hidden h-[190px] w-[136px] lg:block'
-        src={visionProPCImg}
+        ref={visionProPCRef}
         alt='visionPro for PC'
       />
       <div className='flex flex-col gap-2'>

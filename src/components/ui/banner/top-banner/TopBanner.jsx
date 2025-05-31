@@ -2,8 +2,11 @@ import phoneImg from '@assets/Images/main/banner/top/phone.png';
 import cn from '@utils/cn';
 import Button from '@components/ui/buttons/Button';
 import { BUTTON_STYLE, BUTTON_THICKNESS } from '@constants/button';
+import useImageOptimization from '@hooks/useImageOptimization';
 
 const TopBanner = ({ className }) => {
+  const phoneImgRef = useImageOptimization({ src: phoneImg });
+
   return (
     <div
       className={cn(
@@ -29,7 +32,7 @@ const TopBanner = ({ className }) => {
             Shop Now
           </Button>
         </div>
-        <img className='max-w-[406px] lg:pt-22' src={phoneImg} alt='phoneImg' />
+        <img className='max-w-[406px] lg:pt-22' ref={phoneImgRef} alt='phoneImg' />
       </div>
     </div>
   );
