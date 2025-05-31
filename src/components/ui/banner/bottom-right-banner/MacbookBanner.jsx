@@ -3,8 +3,12 @@ import MacBookPCImg from '@assets/Images/main/banner/bottom/MacBookPC.png';
 import MacBookMobileImg from '@assets/Images/main/banner/bottom/MacBookMobile.png';
 import Button from '@components/ui/buttons/Button';
 import { BUTTON_STYLE, BUTTON_THICKNESS } from '@constants/button';
+import useImageOptimization from '@hooks/useImageOptimization';
 
 const MacbookBanner = ({ className }) => {
+  const macBookPCRef = useImageOptimization({ src: MacBookPCImg });
+  const macBookMobileRef = useImageOptimization({ src: MacBookMobileImg });
+
   return (
     <div
       className={cn(
@@ -14,7 +18,7 @@ const MacbookBanner = ({ className }) => {
     >
       <img
         className='h-[200px] w-[330px] lg:hidden'
-        src={MacBookMobileImg}
+        ref={macBookMobileRef}
         alt='MacBook for Mobile'
       />
       <div className='flex flex-col items-center gap-2 lg:items-start lg:gap-4'>
@@ -31,7 +35,7 @@ const MacbookBanner = ({ className }) => {
       </div>
       <img
         className='hidden h-[502px] w-[292px] lg:block lg:py-11'
-        src={MacBookPCImg}
+        ref={macBookPCRef}
         alt='MacBook for PC'
       />
     </div>

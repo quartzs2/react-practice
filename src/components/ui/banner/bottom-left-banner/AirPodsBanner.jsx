@@ -1,8 +1,12 @@
 import cn from '@utils/cn';
 import airPodImg from '@assets/Images/main/banner/bottom/AirPod.png';
 import airPodPCImg from '@assets/Images/main/banner/bottom/AirPodPC.png';
+import useImageOptimization from '@hooks/useImageOptimization';
 
 const AirPodsBanner = ({ className }) => {
+  const airPodRef = useImageOptimization({ src: airPodImg });
+  const airPodPCref = useImageOptimization({ src: airPodPCImg });
+
   return (
     <div
       className={cn(
@@ -10,8 +14,8 @@ const AirPodsBanner = ({ className }) => {
         className,
       )}
     >
-      <img className='h-[200px] w-[192px] lg:hidden' src={airPodImg} alt='airPod for Mobile' />
-      <img className='hidden h-[272px] w-[104px] lg:block' src={airPodPCImg} alt='airPod for PC' />
+      <img className='h-[200px] w-[192px] lg:hidden' ref={airPodRef} alt='airPod for Mobile' />
+      <img className='hidden h-[272px] w-[104px] lg:block' ref={airPodPCref} alt='airPod for PC' />
       <div className='flex flex-col gap-2'>
         <div className='text-center text-[34px] leading-10 font-light lg:flex lg:flex-col lg:text-start lg:text-[29px]'>
           <span>Apple</span> <span>AirPods</span> <span className='font-medium'>Max</span>
