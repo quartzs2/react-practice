@@ -4,6 +4,7 @@ import React from 'react';
 import getCategoryList from '@api/getCategoryList';
 import useFetch from '@hooks/useFetch';
 import { useNavigate, useParams } from 'react-router';
+import { PATH } from '@constants/url';
 
 const Filter = ({ className, dropdownClassName }) => {
   const DROPDOWN_ITEMS = [
@@ -51,9 +52,9 @@ function CategoryItem() {
             id={`${category}`}
             onChange={() => {
               if (catalog !== category) {
-                navigate(`/products/${category}`);
+                navigate(`${PATH.PRODUCTS}/${category}`);
               } else {
-                navigate('/products');
+                navigate(`${PATH.PRODUCTS}`);
               }
             }}
           />

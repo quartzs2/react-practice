@@ -1,5 +1,5 @@
 import Metadata from '@components/Metadata';
-import { DEFAULT_META_DATA_URL } from '@constants/url';
+import { DEFAULT_META_DATA_URL, OG_PRODUCT_PAGE_IMAGE_URL, PATH } from '@constants/url';
 import { useParams } from 'react-router';
 import ProductCardContainer from '@components/ui/common/ProductCardContainer';
 import getProductsByCategory from '@api/getProductsByCategory';
@@ -20,8 +20,8 @@ const Products = () => {
   const query = catalog ? getProductsByCategory : getAllProducts;
   const options = catalog ? { categoryName: catalog } : null;
   const url = catalog
-    ? `${DEFAULT_META_DATA_URL}/products/${catalog}`
-    : `${DEFAULT_META_DATA_URL}/products`;
+    ? `${DEFAULT_META_DATA_URL}${PATH.PRODUCTS}/${catalog}`
+    : `${DEFAULT_META_DATA_URL}${PATH.PRODUCTS}`;
 
   const { products, total, isLoading, error, ref } = useProductInfinityScroll({
     countPerPage,
@@ -37,9 +37,9 @@ const Products = () => {
   return (
     <main>
       <Metadata
-        title='cyber 메인 페이지'
+        title='cyber Products 페이지'
         url={url}
-        image={`${DEFAULT_META_DATA_URL}/og_product_page.png`}
+        image={OG_PRODUCT_PAGE_IMAGE_URL}
         imageAlt='cyber 상품 페이지 이미지입니다. '
         description='cyber의 상품 페이지입니다.'
       />
