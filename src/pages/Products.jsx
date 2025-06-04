@@ -7,6 +7,8 @@ import useProductInfinityScroll from '@hooks/useProductInfinityScroll';
 import Target from '@components/Target';
 import getAllProducts from '@api/getAllProducts';
 import Filter from '@components/ui/products/Filter';
+import useFetch from '@hooks/useFetch';
+import getCategoryList from '@api/getCategoryList';
 import Button from '@components/ui/buttons/Button';
 import FilterIcon from '@assets/Images/icons/24px/icon_filter.svg?react';
 import ChevronDownIcon from '@assets/Images/icons/24px/icon_chevron_down.svg?react';
@@ -28,6 +30,12 @@ const Products = () => {
     query,
     options,
   });
+
+  const {
+    data: categories,
+    isLoading: categoryLoading,
+    error: categoryError,
+  } = useFetch({ query: getCategoryList });
 
   if (error) {
     console.log(error);
@@ -52,7 +60,12 @@ const Products = () => {
         </FilterBtn>
       </section>
       <section className='flex justify-center gap-8'>
-        <Filter className={'hidden md:flex md:max-w-[200px] lg:max-w-[256px]'} />
+        <Filter
+          categories={categories}
+          categoryIsLoading={categoryLoading}
+          categoryError={categoryError}
+          className={'hidden md:flex md:max-w-[200px] lg:max-w-[256px]'}
+        />
         <div className='flex justify-center'>
           <div className='flex flex-col items-start'>
             <div>Products Result : {total}</div>
@@ -67,8 +80,20 @@ const Products = () => {
         </div>
       </section>
       <BottomSheet className={'md:hidden'}>
-        <Filter className={'w-full max-w-full'} dropdownClassName={'max-w-full'} />
-        <Filter className={'w-full max-w-full'} dropdownClassName={'max-w-full'} />
+        <Filter
+          categories={categories}
+          categoryIsLoading={categoryLoading}
+          categoryError={categoryError}
+          className={'w-full max-w-full'}
+          dropdownClassName={'max-w-full'}
+        />
+        <Filter
+          categories={categories}
+          categoryIsLoading={categoryLoading}
+          categoryError={categoryError}
+          className={'w-full max-w-full'}
+          dropdownClassName={'max-w-full'}
+        />
       </BottomSheet>
     </main>
   );

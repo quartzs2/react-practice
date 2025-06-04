@@ -1,16 +1,18 @@
 import Dropdown from '@components/ui/common/Dropdown';
 import cn from '@utils/cn';
 import React from 'react';
-import getCategoryList from '@api/getCategoryList';
-import useFetch from '@hooks/useFetch';
 import { useNavigate, useParams } from 'react-router';
 import { PATH } from '@constants/url';
 
-const Filter = ({ className, dropdownClassName }) => {
+const Filter = ({ className, dropdownClassName, ...rest }) => {
+  const { categories, categoryIsLoading, categoryError } = rest;
+
   const DROPDOWN_ITEMS = [
     {
       title: 'Category',
-      Children: CategoryItem,
+      Children: () => (
+        <CategoryItem data={categories} isLoading={categoryIsLoading} error={categoryError} />
+      ),
     },
   ];
 
@@ -29,9 +31,8 @@ const Filter = ({ className, dropdownClassName }) => {
   );
 };
 
-function CategoryItem() {
+function CategoryItem({ data, isLoading, error }) {
   const navigate = useNavigate();
-  const { data: categories, isLoading, error } = useFetch({ query: getCategoryList });
   const { catalog } = useParams();
 
   if (isLoading) {
@@ -44,7 +45,7 @@ function CategoryItem() {
 
   return (
     <div>
-      {categories?.map((category) => (
+      {data?.map((category) => (
         <div className='flex gap-2' key={category}>
           <input
             type='checkbox'
