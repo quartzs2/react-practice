@@ -32,7 +32,7 @@ const SECTION_ITEMS = [
 
 const Footer = () => {
   return (
-    <div className='flex flex-col items-center justify-center gap-8 bg-black px-[32px] py-[48px] text-[#CFCFCF] md:items-start md:px-[160px] md:py-[104px]'>
+    <div className='mt-[300px] flex flex-col items-center justify-center gap-8 bg-black px-[32px] py-[48px] text-[#CFCFCF] md:items-start md:px-[160px] md:py-[104px]'>
       <div className='flex w-full flex-col items-center justify-between gap-8 md:max-w-[1120px] md:flex-row md:items-start'>
         <section className='flex flex-col items-center gap-4 md:items-start md:gap-6'>
           <WhiteLogo className='w-[65px]' />
