@@ -25,6 +25,7 @@ const useProductInfinityScroll = ({ countPerPage, query, options }) => {
         setCurrentSkip((prev) => prev + countPerPage);
       }
     },
+    disabled: products.length === 0,
   });
 
   useEffect(() => {

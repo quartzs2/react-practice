@@ -43,7 +43,7 @@ const Products = () => {
   }
 
   return (
-    <main>
+    <div>
       <Metadata
         title='cyber Products 페이지'
         url={url}
@@ -95,7 +95,7 @@ const Products = () => {
           dropdownClassName={'max-w-full'}
         />
       </BottomSheet>
-    </main>
+    </div>
   );
 };
 
