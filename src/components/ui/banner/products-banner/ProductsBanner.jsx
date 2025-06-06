@@ -18,7 +18,7 @@ const ProductsBanner = ({ categories }) => {
     return <div>에러가 발생했습니다.</div>;
   }
 
-  const products = data?.products.slice(0, 8) ?? [];
+  const products = data?.list.slice(0, 8) ?? [];
 
   return (
     <div className='flex flex-col items-center gap-8 px-4 py-14'>

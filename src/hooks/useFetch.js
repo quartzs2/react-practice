@@ -1,57 +1,66 @@
-import { useEffect, useRef, useState } from 'react';
-import { isEqual } from 'lodash';
+import { useState } from 'react';
+import useDeepCompareEffect from '@hooks/useDeepCompareEffect';
 
 const useFetch = ({ enabled = true, options, query }) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const prevQueryRef = useRef();
-  const prevOptionRef = useRef();
-
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       setError(null);
 
       try {
         const response = await query({ ...options });
-        const data = await response.json();
-        setData(data);
-      } catch (error) {
-        setError(error);
+        const responseData = await response.json();
+
+        setData(responseData);
+      } catch (err) {
+        setError(err);
         setData(null);
       } finally {
         setIsLoading(false);
       }
     };
 
-    if (!enabled) {
+    if (enabled) {
+      fetchData();
+    } else {
       setData(null);
       setError(null);
-      setIsLoading(null);
-
-      prevQueryRef.current = undefined;
-      prevOptionRef.current = undefined;
-      return;
-    }
-
-    if (
-      prevQueryRef.current === undefined ||
-      query !== prevQueryRef.current ||
-      !isEqual(options, prevOptionRef.current)
-    ) {
-      prevQueryRef.current = query;
-      prevOptionRef.current = options;
-      fetchData();
+      setIsLoading(false);
     }
   }, [query, options, enabled]);
 
-  if (!enabled) {
-    return { data: null, error: null, isLoading: null };
-  }
+  const getParsedData = () => {
+    if (!data) {
+      return null;
+    }
 
-  return { data, error, isLoading };
+    if (Array.isArray(data)) {
+      return {
+        list: data,
+        limit: 0,
+        total: data.length,
+      };
+    }
+
+    if (typeof data === 'object' && data !== null) {
+      const key = Object.keys(data)[0];
+      if (key && Array.isArray(data[key])) {
+        return {
+          list: data[key],
+          limit: data.limit,
+          total: data.total,
+        };
+      }
+    }
+
+    return { list: [], limit: 0, total: 0 };
+  };
+
+  return { data: getParsedData(), error, isLoading };
 };
 
 export default useFetch;
