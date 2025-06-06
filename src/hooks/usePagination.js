@@ -1,18 +1,13 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { isEqual } from 'lodash';
+import { useCallback, useState } from 'react';
+import useDeepCompareEffect from '@hooks/useDeepCompareEffect';
 
 const usePagination = ({ query, options, countPerPage }) => {
   const [currentSkip, setCurrentSkip] = useState(0);
   const [hasNextPage, setHasNextPage] = useState(true);
   const [stableOptions, setStableOptions] = useState(options);
 
-  const prevOptionsRef = useRef();
-
-  useEffect(() => {
-    if (!isEqual(options, prevOptionsRef.current)) {
-      setStableOptions(options);
-    }
-    prevOptionsRef.current = options;
+  useDeepCompareEffect(() => {
+    setStableOptions(options);
   }, [options]);
 
   const fetchNextPageQuery = useCallback(() => {

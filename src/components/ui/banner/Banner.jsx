@@ -9,7 +9,7 @@ import TopBanner from '@components/ui/banner/top-banner/TopBanner';
 import useFetch from '@hooks/useFetch';
 
 const Banner = () => {
-  const { data: categories, isLoading, error } = useFetch({ query: getCategoryList });
+  const { data, isLoading, error } = useFetch({ query: getCategoryList });
 
   if (error) {
     console.log('에러:', error);
@@ -26,7 +26,7 @@ const Banner = () => {
         <MacbookBanner className='lg:col-span-2 lg:col-start-3 lg:row-span-2 lg:row-start-1' />
       </div>
       <CategoryBanner />
-      {!isLoading && categories !== null && <ProductsBanner categories={categories} />}
+      {!isLoading && data !== null && <ProductsBanner categories={data.list} />}
     </div>
   );
 };
