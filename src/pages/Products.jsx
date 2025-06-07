@@ -14,10 +14,12 @@ import ChevronDownIcon from '@assets/Images/icons/24px/icon_chevron_down.svg?rea
 import BottomSheet from '@components/ui/common/BottomSheet';
 import { useMemo } from 'react';
 import FilterBtn from '@components/ui/buttons/FilterBtn';
+import useIsMobileDevice from '@hooks/useIsMobileDevice';
 
 const Products = () => {
   const countPerPage = 6;
   const { catalog } = useParams();
+  const isMobile = useIsMobileDevice();
 
   const query = useMemo(() => (catalog ? getProductsByCategory : getAllProducts), [catalog]);
   const options = useMemo(() => (catalog ? { categoryName: catalog } : null), [catalog]);
@@ -51,14 +53,16 @@ const Products = () => {
         imageAlt='cyber 상품 페이지 이미지입니다. '
         description='cyber의 상품 페이지입니다.'
       />
-      <section className='my-11 flex justify-center gap-4 md:hidden'>
-        <FilterBtn>
-          Filters <FilterIcon />
-        </FilterBtn>
-        <FilterBtn>
-          By rating <ChevronDownIcon />
-        </FilterBtn>
-      </section>
+      {isMobile && (
+        <section className='my-11 flex justify-center gap-4 md:hidden'>
+          <FilterBtn>
+            Filters <FilterIcon />
+          </FilterBtn>
+          <FilterBtn>
+            By rating <ChevronDownIcon />
+          </FilterBtn>
+        </section>
+      )}
       <section className='flex justify-center gap-8'>
         <Filter
           categories={categoryData?.list}
@@ -79,22 +83,24 @@ const Products = () => {
           </div>
         </div>
       </section>
-      <BottomSheet className={'md:hidden'}>
-        <Filter
-          categories={categoryData?.list}
-          categoryIsLoading={categoryLoading}
-          categoryError={categoryError}
-          className={'w-full max-w-full'}
-          dropdownClassName={'max-w-full'}
-        />
-        <Filter
-          categories={categoryData?.list}
-          categoryIsLoading={categoryLoading}
-          categoryError={categoryError}
-          className={'w-full max-w-full'}
-          dropdownClassName={'max-w-full'}
-        />
-      </BottomSheet>
+      {isMobile && (
+        <BottomSheet className={'md:hidden'}>
+          <Filter
+            categories={categoryData?.list}
+            categoryIsLoading={categoryLoading}
+            categoryError={categoryError}
+            className={'w-full max-w-full'}
+            dropdownClassName={'max-w-full'}
+          />
+          <Filter
+            categories={categoryData?.list}
+            categoryIsLoading={categoryLoading}
+            categoryError={categoryError}
+            className={'w-full max-w-full'}
+            dropdownClassName={'max-w-full'}
+          />
+        </BottomSheet>
+      )}
     </div>
   );
 };
