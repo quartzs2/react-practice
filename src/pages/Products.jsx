@@ -15,6 +15,7 @@ import BottomSheet from '@components/ui/common/BottomSheet';
 import { useMemo } from 'react';
 import FilterBtn from '@components/ui/buttons/FilterBtn';
 import useIsMobileDevice from '@hooks/useIsMobileDevice';
+import ProductCardContainerSkeleton from '@components/ui/common/ProductCardContainerSkeleton';
 
 const Products = () => {
   const countPerPage = 6;
@@ -27,11 +28,13 @@ const Products = () => {
     ? `${DEFAULT_META_DATA_URL}${PATH.PRODUCTS}/${catalog}`
     : `${DEFAULT_META_DATA_URL}${PATH.PRODUCTS}`;
 
-  const { data, total, isLoading, error, ref } = useInfinityScroll({
+  const { data, total, isLoading, error, ref, hasNextPage } = useInfinityScroll({
     countPerPage,
     query,
     options,
   });
+
+  const isLoadingDone = !hasNextPage && !isLoading;
 
   const {
     data: categoryData,
@@ -75,11 +78,13 @@ const Products = () => {
             <div>Products Result : {total}</div>
             <ProductCardContainer
               products={data}
-              isLoading={isLoading}
               skeletonSize={countPerPage}
               className={'md:grid-cols-2 xl:grid-cols-3'}
             />
             <Target ref={ref} />
+            {!isLoadingDone && (
+              <ProductCardContainerSkeleton className={'md:grid-cols-2 xl:grid-cols-3'} />
+            )}
           </div>
         </div>
       </section>
