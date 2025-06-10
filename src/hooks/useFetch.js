@@ -1,10 +1,15 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import useDeepCompareEffect from '@hooks/useDeepCompareEffect';
 
 const useFetch = ({ enabled = true, options, query }) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [refetchIndex, setRefetchIndex] = useState(0);
+
+  const refetch = useCallback(() => {
+    setRefetchIndex((prevIndex) => prevIndex + 1);
+  }, []);
 
   useDeepCompareEffect(() => {
     const fetchData = async () => {
@@ -31,7 +36,7 @@ const useFetch = ({ enabled = true, options, query }) => {
       setError(null);
       setIsLoading(false);
     }
-  }, [query, options, enabled]);
+  }, [query, options, enabled, refetchIndex]);
 
   const getParsedData = () => {
     if (!data) {
@@ -60,7 +65,7 @@ const useFetch = ({ enabled = true, options, query }) => {
     return { list: [], limit: 0, total: 0 };
   };
 
-  return { data: getParsedData(), error, isLoading };
+  return { data: getParsedData(), error, isLoading, refetch, refetchIndex };
 };
 
 export default useFetch;
