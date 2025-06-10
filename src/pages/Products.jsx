@@ -16,6 +16,8 @@ import { useMemo } from 'react';
 import FilterBtn from '@components/ui/buttons/FilterBtn';
 import useIsMobileDevice from '@hooks/useIsMobileDevice';
 import ProductCardContainerSkeleton from '@components/ui/common/ProductCardContainerSkeleton';
+import PullToRefresh from '@components/ui/common/PullToRefresh';
+import { PulseLoader } from 'react-spinners';
 
 const Products = () => {
   const countPerPage = 6;
@@ -28,7 +30,7 @@ const Products = () => {
     ? `${DEFAULT_META_DATA_URL}${PATH.PRODUCTS}/${catalog}`
     : `${DEFAULT_META_DATA_URL}${PATH.PRODUCTS}`;
 
-  const { data, total, isLoading, error, ref, hasNextPage } = useInfinityScroll({
+  const { data, total, isLoading, error, ref, hasNextPage, refreshData } = useInfinityScroll({
     countPerPage,
     query,
     options,
@@ -48,7 +50,7 @@ const Products = () => {
   }
 
   return (
-    <div>
+    <PullToRefresh onRefresh={refreshData} maxDistance={80} loadingComponent={<PulseLoader />}>
       <Metadata
         title='cyber Products 페이지'
         url={url}
@@ -106,7 +108,7 @@ const Products = () => {
           />
         </BottomSheet>
       )}
-    </div>
+    </PullToRefresh>
   );
 };
 

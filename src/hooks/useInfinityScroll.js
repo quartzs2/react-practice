@@ -12,7 +12,13 @@ const useInfinityScroll = ({ countPerPage, query, options }) => {
     options,
     countPerPage,
   });
-  const { data: fetchData, isLoading, error } = useFetch({ query: fetchNextPageQuery });
+  const {
+    data: fetchData,
+    isLoading,
+    error,
+    refetch,
+    refetchIndex,
+  } = useFetch({ query: fetchNextPageQuery });
 
   const total = fetchData?.total ?? 0;
   const ref = useIntersect({
@@ -24,6 +30,13 @@ const useInfinityScroll = ({ countPerPage, query, options }) => {
     },
     disabled: data.length === 0,
   });
+
+  const refreshData = () => {
+    setData([]);
+    setCurrentSkip(0);
+    setHasNextPage(true);
+    refetch();
+  };
 
   useDeepCompareEffect(() => {
     setData([]);
@@ -42,9 +55,9 @@ const useInfinityScroll = ({ countPerPage, query, options }) => {
       });
       setHasNextPage(fetchData.list.length === countPerPage);
     }
-  }, [fetchData, setHasNextPage, countPerPage]);
+  }, [fetchData, setHasNextPage, countPerPage, refetchIndex]);
 
-  return { data, total, isLoading, error, hasNextPage, ref };
+  return { data, total, isLoading, error, hasNextPage, ref, refreshData };
 };
 
 export default useInfinityScroll;
