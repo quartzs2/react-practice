@@ -1,4 +1,5 @@
 import Icon from '@components/icons/Icon';
+import useImageOptimization from '@hooks/useImageOptimization';
 import cn from '@utils/cn';
 import FavoriteDuotoneIcon from '@assets/Images/icons/32px/icon_favorite_duotone.svg?react';
 import Button from '@components/ui/buttons/Button';
@@ -8,6 +9,7 @@ import { LOCAL_STORAGE_FAVORITES_KEY } from '@constants/localStorageKey';
 import ProductCardSkeleton from '@components/ui/common/ProductCardSkeleton';
 
 const ProductCard = ({ className, id, image, title, price, isLoading }) => {
+  const ref = useImageOptimization({ src: image });
   const [isLike, setIsLike] = useState(false);
   const handleLikeClick = () => {
     const favorites = JSON.parse(localStorage.getItem(LOCAL_STORAGE_FAVORITES_KEY)) ?? [];
@@ -54,8 +56,8 @@ const ProductCard = ({ className, id, image, title, price, isLoading }) => {
 
       <div className='h-26 w-26 md:h-40 md:w-40'>
         <img
+          ref={ref}
           className={cn('h-26 w-26 rounded-md object-cover md:h-40 md:w-40')}
-          src={image}
           alt='product'
         />
       </div>

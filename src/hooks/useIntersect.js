@@ -1,16 +1,20 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-const useIntersect = ({ onIntersect, options }) => {
+const useIntersect = ({ onIntersect, options, disabled = false }) => {
   const ref = useRef(null);
   const callback = useCallback(
     (entries, observer) => {
       entries.forEach((entry) => {
+        if (disabled) {
+          return;
+        }
+
         if (entry.isIntersecting) {
           onIntersect(entry, observer);
         }
       });
     },
-    [onIntersect],
+    [onIntersect, disabled],
   );
 
   useEffect(() => {

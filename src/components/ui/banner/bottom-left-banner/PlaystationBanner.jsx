@@ -2,7 +2,11 @@ import cn from '@utils/cn';
 import PlaystationImg from '@assets/Images/main/banner/bottom/Playstation.png';
 import PlaystationPCImg from '@assets/Images/main/banner/bottom/PlaystationPC.png';
 
+import useImageOptimization from '@hooks/useImageOptimization';
 const PlaystationBanner = ({ className }) => {
+  const playstationRef = useImageOptimization({ src: PlaystationImg });
+  const playstationPCRef = useImageOptimization({ src: PlaystationPCImg });
+
   return (
     <div
       className={cn(
@@ -12,12 +16,12 @@ const PlaystationBanner = ({ className }) => {
     >
       <img
         className='absolute top-0 left-0 hidden h-[340px] w-[360px] lg:block'
-        src={PlaystationPCImg}
+        ref={playstationPCRef}
         alt='Playstation for PC'
       />
       <img
         className='h-[200px] w-[200px] lg:hidden'
-        src={PlaystationImg}
+        ref={playstationRef}
         alt='Playstation for Mobile'
       />
       <div className='flex flex-col gap-2 lg:w-full lg:items-end lg:justify-center lg:gap-4'>
