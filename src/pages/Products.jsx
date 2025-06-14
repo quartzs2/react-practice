@@ -50,7 +50,7 @@ const Products = () => {
   }
 
   return (
-    <PullToRefresh onRefresh={refreshData} maxDistance={80} loadingComponent={<PulseLoader />}>
+    <div>
       <Metadata
         title='cyber Products 페이지'
         url={url}
@@ -58,38 +58,40 @@ const Products = () => {
         imageAlt='cyber 상품 페이지 이미지입니다. '
         description='cyber의 상품 페이지입니다.'
       />
-      {isMobile && (
-        <section className='my-11 flex justify-center gap-4 md:hidden'>
-          <FilterBtn>
-            Filters <FilterIcon />
-          </FilterBtn>
-          <FilterBtn>
-            By rating <ChevronDownIcon />
-          </FilterBtn>
-        </section>
-      )}
-      <section className='flex justify-center gap-8'>
-        <Filter
-          categories={categoryData?.list}
-          categoryIsLoading={categoryLoading}
-          categoryError={categoryError}
-          className={'hidden md:flex md:max-w-[200px] lg:max-w-[256px]'}
-        />
-        <div className='flex justify-center'>
-          <div className='flex flex-col items-start'>
-            <div>Products Result : {total}</div>
-            <ProductCardContainer
-              products={data}
-              skeletonSize={countPerPage}
-              className={'md:grid-cols-2 xl:grid-cols-3'}
-            />
-            <Target ref={ref} />
-            {!isLoadingDone && (
-              <ProductCardContainerSkeleton className={'md:grid-cols-2 xl:grid-cols-3'} />
-            )}
+      <PullToRefresh onRefresh={refreshData} maxDistance={80} loadingComponent={<PulseLoader />}>
+        {isMobile && (
+          <section className='my-11 flex justify-center gap-4 md:hidden'>
+            <FilterBtn>
+              Filters <FilterIcon />
+            </FilterBtn>
+            <FilterBtn>
+              By rating <ChevronDownIcon />
+            </FilterBtn>
+          </section>
+        )}
+        <section className='flex justify-center gap-8'>
+          <Filter
+            categories={categoryData?.list}
+            categoryIsLoading={categoryLoading}
+            categoryError={categoryError}
+            className={'hidden md:flex md:max-w-[200px] lg:max-w-[256px]'}
+          />
+          <div className='flex justify-center'>
+            <div className='flex flex-col items-start'>
+              <div>Products Result : {total}</div>
+              <ProductCardContainer
+                products={data}
+                skeletonSize={countPerPage}
+                className={'md:grid-cols-2 xl:grid-cols-3'}
+              />
+              <Target ref={ref} />
+              {!isLoadingDone && (
+                <ProductCardContainerSkeleton className={'md:grid-cols-2 xl:grid-cols-3'} />
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </PullToRefresh>
       {isMobile && (
         <BottomSheet className={'md:hidden'}>
           <Filter
@@ -108,7 +110,7 @@ const Products = () => {
           />
         </BottomSheet>
       )}
-    </PullToRefresh>
+    </div>
   );
 };
 
