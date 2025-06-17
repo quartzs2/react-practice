@@ -29,7 +29,7 @@ const MacbookBanner = ({ className }) => {
           The new 15-inch MacBook Air makes room for more of what you love with a spacious Liquid
           Retina display.
         </div>
-        <Button thickness={BUTTON_THICKNESS.THICK} style={BUTTON_STYLE.BLACK_STROKE}>
+        <Button thickness={BUTTON_THICKNESS.THICK} buttonStyle={BUTTON_STYLE.BLACK_STROKE}>
           Shop Now
         </Button>
       </div>

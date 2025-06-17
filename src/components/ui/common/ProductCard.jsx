@@ -69,7 +69,7 @@ const ProductCard = ({ className, id, image, title, price, isLoading }) => {
         </div>
         <Button
           thickness={BUTTON_THICKNESS.THIN}
-          style={BUTTON_STYLE.FILL}
+          buttonStyle={BUTTON_STYLE.FILL}
           className={cn('w-35 md:w-[183px]')}
         >
           Buy Now

@@ -1,6 +1,6 @@
 import cn from '@utils/cn';
 
-const Button = ({ children, thickness, style, className, onClick }) => {
+const Button = ({ children, thickness, buttonStyle, className, onClick, ...rest }) => {
   return (
     <button
       type='button'
@@ -8,9 +8,10 @@ const Button = ({ children, thickness, style, className, onClick }) => {
       className={cn(
         'flex cursor-pointer items-center justify-center gap-2 rounded-lg border-1 text-center text-base leading-6 font-medium',
         thickness,
-        style,
+        buttonStyle,
         className,
       )}
+      {...rest}
     >
       {children}
     </button>

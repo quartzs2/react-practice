@@ -5,7 +5,7 @@ function FilterBtn({ children, onClick }) {
   return (
     <Button
       thickness={BUTTON_THICKNESS.THICK}
-      style={BUTTON_STYLE.GRAY_STROKE}
+      buttonStyle={BUTTON_STYLE.GRAY_STROKE}
       onClick={onClick}
       className={'w-[164px] justify-between p-4 text-[15px]/[16px] font-normal tracking-[-0.5%]'}
     >
